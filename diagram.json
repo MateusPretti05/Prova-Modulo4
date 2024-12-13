@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Victor Hayashi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s3-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 6, "left": 253.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 178.8,
+      "left": 253.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 92.4,
+      "left": 253.4,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 54.2,
+      "left": -96,
+      "attrs": { "color": "grey" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -83.2,
+      "left": -172,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:9", "led3:A", "yellow", [ "h0" ] ],
+    [ "led1:A", "esp:40", "red", [ "h32.11", "v-64.05" ] ],
+    [ "led2:A", "esp:2", "green", [ "v2.08", "h29.73", "v-163.2" ] ],
+    [ "ldr1:DO", "esp:4", "orange", [ "h172.8", "v9" ] ],
+    [ "ldr1:VCC", "esp:3V3.1", "cyan", [ "h0" ] ],
+    [ "ldr1:AO", "esp:5", "green", [ "h0" ] ],
+    [ "ldr1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "btn1:1.r", "esp:17", "purple", [ "h57.8", "v38.58" ] ],
+    [ "led1:C", "esp:GND.3", "black", [ "v31.77", "h-125.66" ] ],
+    [ "led2:C", "esp:GND.4", "black", [ "v0" ] ],
+    [ "led3:C", "esp:GND.4", "black", [ "v0" ] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [ "h-28.8", "v125", "h129.88" ] ]
+  ],
+  "dependencies": {}
+}
